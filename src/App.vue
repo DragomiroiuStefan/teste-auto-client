@@ -8,17 +8,15 @@ const items = ref([
   },
   {
     label: 'Testele mele',
-    to: '/about'
+    to: '/my-tests'
   },
   {
     label: 'Autentificare',
-    to: '/about',
     visible: true,
     class: 'menu-right'
   },
   {
     label: 'Inregistrare',
-    to: '/about',
     visible: true,
     class: 'menu-right'
   }
@@ -33,12 +31,14 @@ const items = ref([
         <!-- <template #end>
           <Button label="Autentificare" />
           <Button label="Inregistrare" />
-        </template> -->
+        </template>-->
       </Menubar>
     </nav>
   </header>
 
-  <router-view />
+  <main>
+    <router-view />
+  </main>
 </template>
 
 <style>
@@ -47,5 +47,10 @@ const items = ref([
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+main {
+  margin: auto;
+  width: 80%;
+  margin-top: 40px;
 }
 </style>

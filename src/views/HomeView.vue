@@ -1,19 +1,22 @@
 <script setup>
 import { ref } from 'vue';
+import CategoryService from '../services/CategoryService.js'
 
 const selectedCategory = ref();
 
-const categories = ref([
-  { name: 'New York', code: 'NY' },
-  { name: 'Rome', code: 'RM' },
-  { name: 'London', code: 'LDN' },
-  { name: 'Istanbul', code: 'IST' },
-  { name: 'Paris', code: 'PRS' }
-]);
+const categories = ref([]);
+
+CategoryService.getCategories()
+  .then(response => {
+    categories.value = response.data
+  })
+  .catch(error => {
+    console.log(error)
+  })
+
 </script>
 
 <template>
-  <main>
     <h1>Simulare examen auto</h1>
     <p>
       În această secțiune, chestionarele sunt concepute după modelul chestionarelor de la examinarea teoretică pe care o vei susține pentru obținerea
@@ -24,23 +27,19 @@ const categories = ref([
     <Dropdown
       v-model="selectedCategory"
       :options="categories"
-      optionLabel="name"
-      placeholder="Select a Category"
+      optionLabel="categoryId"
+      placeholder="Selecteaza o categorie"
     />
-    <Button label="Incepe test" />
-  </main>
+    <router-link to="/test">
+      <Button label="Incepe test" />
+    </router-link>
 </template>
 
 <style scoped>
-main {
-  margin: auto;
-  width: 60%;
-  margin-top: 40px;
-}
 .p-dropdown {
-    width: 12rem;
+  width: 16rem;
 }
 .p-button {
-  margin-left: 1%;
+  margin-left: 1rem;
 }
 </style>
