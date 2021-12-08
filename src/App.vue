@@ -3,13 +3,16 @@ import { ref } from 'vue';
 
 const items = ref([
   {
-    label: 'Teste-auto',
-    to: '/'
+    separator: true
   },
   {
     label: 'Testele mele',
     to: '/my-tests'
   },
+    {
+    label: 'Contact',
+    to: '/contact'
+  }
 ]);
 
 </script>
@@ -17,9 +20,18 @@ const items = ref([
 <template>
   <header>
     <nav>
-      <Menubar :model="items">
+      <Menubar id="menu-bar" :model="items">
+        <template #start>
+          <router-link to="/">
+            <img src="@/assets/logo.png" alt="logo" />
+          </router-link>
+        </template>
         <template #end>
-          <Button id="auth-button" label="Autentificare" class="p-button-raised p-button-secondary"/>
+          <Button
+            id="auth-button"
+            label="Autentificare"
+            class="p-button-raised p-button-secondary"
+          />
         </template>
       </Menubar>
     </nav>
@@ -42,5 +54,11 @@ main {
   width: 80%;
   margin-top: 20px;
 }
-
+#menu-bar {
+  padding-top: 0%;
+  padding-bottom: 0%;
+}
+.p-menu-item {
+  margin-left: 1%;
+}
 </style>
