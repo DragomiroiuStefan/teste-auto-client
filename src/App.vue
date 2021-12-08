@@ -10,16 +10,6 @@ const items = ref([
     label: 'Testele mele',
     to: '/my-tests'
   },
-  {
-    label: 'Autentificare',
-    visible: true,
-    class: 'menu-right'
-  },
-  {
-    label: 'Inregistrare',
-    visible: true,
-    class: 'menu-right'
-  }
 ]);
 
 </script>
@@ -28,10 +18,9 @@ const items = ref([
   <header>
     <nav>
       <Menubar :model="items">
-        <!-- <template #end>
-          <Button label="Autentificare" />
-          <Button label="Inregistrare" />
-        </template>-->
+        <template #end>
+          <Button id="auth-button" label="Autentificare" class="p-button-raised p-button-secondary"/>
+        </template>
       </Menubar>
     </nav>
   </header>
@@ -51,6 +40,7 @@ const items = ref([
 main {
   margin: auto;
   width: 80%;
-  margin-top: 40px;
+  margin-top: 20px;
 }
+
 </style>

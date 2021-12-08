@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
-import TestService from '../services/TestService.js'
+import Timer from '@/components/Timer.vue'
+import TestService from '@/services/TestService.js'
 
 const questions = ref(null);
 const totalCorrectAnswers = ref(0);
@@ -17,8 +18,6 @@ function sendAnswer(index) {
   } else {
     totalWrongAnswers.value++;
   }
-
-  //firstArr.toString() === secondArr.toString()
 }
 
 TestService.getTest('B')
@@ -32,10 +31,21 @@ TestService.getTest('B')
 </script>
 
 <template>
-  <p> <span id="total-correct-answers">{{totalCorrectAnswers}}</span> Raspunsuri corecte | <span id="total-wrong-answers">{{totalWrongAnswers}}</span> Raspunsuri gresite</p>
+  <div class="p-d-flex p-flex-wrap">
+    <p class="p-mr-2 p-d-inline">
+      <span id="total-correct-answers">{{ totalCorrectAnswers }}</span> Raspunsuri corecte |
+    </p>
+    <p class="p-d-inline">
+      <span id="total-wrong-answers">{{ totalWrongAnswers }}</span> Raspunsuri gresite
+    </p>
+  </div>
+  <div class="p-d-flex p-jc-center">
+    <Timer testDuration="20" />
+  </div>
+
   <Carousel :value="questions" :numVisible="1" :numScroll="1">
     <template #item="slotProps">
-      <div>
+      <div class="question-box">
         <h3>{{ slotProps.data.text }}</h3>
         <div class="p-field-checkbox">
           <Checkbox
@@ -67,13 +77,21 @@ TestService.getTest('B')
           />
           <label for="answer3">{{ slotProps.data.answers[2] }}</label>
         </div>
-        <Button label="Trimite raspunsul" @click="sendAnswer(slotProps.index)" />
+        <Button
+          label="Trimite raspunsul"
+          @click="sendAnswer(slotProps.index)"
+          :disabled="slotProps.data.disabled"
+        />
       </div>
     </template>
   </Carousel>
 </template>
 
 <style scoped>
+.question-box {
+  margin-left: 3%;
+  margin-top: 3%;
+}
 .p-field-checkbox {
   margin-bottom: 0.4rem;
 }
@@ -84,9 +102,9 @@ TestService.getTest('B')
   margin-top: 1rem;
 }
 #total-correct-answers {
-  color: rgb(0, 146, 0)
+  color: rgb(0, 146, 0);
 }
 #total-wrong-answers {
-  color: red
+  color: red;
 }
 </style>
