@@ -9,7 +9,7 @@ const items = ref([
     label: 'Testele mele',
     to: '/my-tests'
   },
-    {
+  {
     label: 'Contact',
     to: '/contact'
   }
@@ -27,11 +27,13 @@ const items = ref([
           </router-link>
         </template>
         <template #end>
-          <Button
-            id="auth-button"
-            label="Autentificare"
-            class="p-button-raised p-button-secondary"
-          />
+          <router-link to="/login">
+            <Button
+              id="auth-button"
+              label="Autentificare"
+              class="p-button-raised p-button-secondary"
+            />
+          </router-link>
         </template>
       </Menubar>
     </nav>
@@ -52,7 +54,7 @@ const items = ref([
 main {
   margin: auto;
   width: 80%;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 #menu-bar {
   padding-top: 0%;

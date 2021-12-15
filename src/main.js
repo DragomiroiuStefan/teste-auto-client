@@ -10,6 +10,8 @@ import Carousel from 'primevue/carousel';
 import Dropdown from 'primevue/dropdown';
 import Dialog from 'primevue/dialog';
 import Button from 'primevue/button';
+import InputText from 'primevue/inputtext';
+import Password from 'primevue/password';
 import Checkbox from 'primevue/checkbox';
 
 import 'primevue/resources/themes/saga-blue/theme.css';
@@ -29,6 +31,8 @@ app.component('Carousel', Carousel);
 app.component('Dropdown', Dropdown);
 app.component('Dialog', Dialog);
 app.component('Button', Button);
+app.component('InputText', InputText);
+app.component('Password', Password);
 app.component('Checkbox', Checkbox);
 
 app.mount('#app')
