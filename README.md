@@ -1,28 +1,28 @@
-# teste-auto
+# teste-auto client
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplicatie client pentru testare auto.
 
-## Recommended IDE Setup
+## Tehnologii
+- HTML
+- CSS
+- JavaScript
+- Vue.js
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur).
+## Setup
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+### Instalare dependente
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### Rulare pentru mediul de dezvoltare
 
 ```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+### Compilare pentru mediul de productie
 
 ```sh
 npm run build
